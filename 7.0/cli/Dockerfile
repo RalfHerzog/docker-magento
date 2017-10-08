@@ -46,4 +46,7 @@ RUN apt-get update \
 COPY bin/* $BIN_DIR/
 ADD run-cron.sh /run-cron.sh
 
+COPY int.rherzog.de-CA.crt /usr/local/share/ca-certificates/int.rherzog.de-CA.crt
+RUN update-ca-certificates
+
 CMD ["php", "-a"]

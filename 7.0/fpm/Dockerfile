@@ -32,4 +32,7 @@ COPY php.ini /usr/local/etc/php/conf.d/zz-magento.ini
 ADD entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
+COPY int.rherzog.de-CA.crt /usr/local/share/ca-certificates/int.rherzog.de-CA.crt
+RUN update-ca-certificates
+
 CMD ["php-fpm"]

@@ -36,4 +36,7 @@ RUN a2enmod rewrite headers
 
 COPY magento.conf /etc/apache2/conf-enabled/
 
+COPY int.rherzog.de-CA.crt /usr/local/share/ca-certificates/int.rherzog.de-CA.crt
+RUN update-ca-certificates
+
 CMD ["apache2-foreground"]
